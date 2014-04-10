@@ -49,7 +49,7 @@
 								<input id="password" type="password" name="password"
 									placeholder="Password" title="Case-sensitive" required />
 							</div>
-							<input class="btn btn-primary" type="submit" value="Login" /> <a
+							<input class="btn btn-success" type="submit" value="Login" /> <a
 								href="register.jsp">
 								<button class="btn btn-primary" type="button">Register</button>
 							</a>
