@@ -59,6 +59,7 @@ function loadToDoList(){
 		tr = document.createElement("tr");
 		
 		var date = new Date(results[i][1]);
+		var id = results[i][0];
 		var day = date.getDay();
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
@@ -100,17 +101,23 @@ function loadToDoList(){
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
-		button = document.createElement("button");
-		button.innerHTML = "Edit (" + results[i][0] + ")";
-		td.appendChild(button);
-		td.setAttribute("style", "width: 100px;");
+//		button = document.createElement("button");
+//		button.innerHTML = "Edit Task";//(" + results[i][0] + ")";
+//		button.onclick = editTask(id);
+//		button.setAttribute("class", "btn btn-warning");
+//		td.appendChild(button);
+//		td.setAttribute("style", "width: 100px;");
+		td.innerHTML = '<td style="width:100px;"><button class="btn btn-warning" onclick="editTask(' + id + ')" >Edit Task</button></td>';
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
-		button = document.createElement("button");
-		button.innerHTML = "Remove (" + results[i][0] + ")";
-		td.appendChild(button);
-		td.setAttribute("style", "width: 120px;");
+//		button = document.createElement("button");
+//		button.innerHTML = "Remove Task";//(" + results[i][0] + ")";
+//		button.onclick = removeTask(id);
+//		button.setAttribute("class", "btn btn-danger");
+//		td.appendChild(button);
+//		td.setAttribute("style", "width: 120px;");
+		td.innerHTML = '<td style="width:100px;"><button class="btn btn-danger" onclick="removeTask(' + id + ')" >Remove Task</button></td>';
 		tr.appendChild(td);
 		
 		tbody.appendChild(tr);
@@ -121,6 +128,14 @@ function loadToDoList(){
 	contentDiv.appendChild(tableDiv);
 	containerDiv.appendChild(contentDiv);
 	document.getElementById("todolist").appendChild(containerDiv);
+}
+
+function editTask(itemID){
+	console.log("Editting task ID: " + itemID);
+}
+
+function removeTask(itemID){
+	console.log("Removing task ID: " + itemID);
 }
 
 function makeJSONObject(location) {
