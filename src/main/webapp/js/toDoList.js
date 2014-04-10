@@ -2,6 +2,14 @@ function loadToDoList(){
 	var username = "zodac"; //TODO Get from cookie
 	var results = makeJSONObject("./webservice/ToDoList/" + username);
 	
+	document.title = username + "'s To-Do List";
+	document.getElementById("header").innerHTML = username + "'s To-Do List";
+	
+	var mainNode = document.getElementById("todolist");
+	while (mainNode.lastChild) {
+		mainNode.removeChild(mainNode.lastChild);
+	}
+	
 	var containerDiv = document.createElement("div");
 	containerDiv.setAttribute("class", "container");
 	containerDiv.setAttribute("style", "width: 900px");
@@ -51,7 +59,6 @@ function loadToDoList(){
 	table.appendChild(thead);
 	
 	var tbody = document.createElement("tbody");
-	var button;
 	var monthNames = [ "January", "February", "March", "April", "May", "June",
 	                   "July", "August", "September", "October", "November", "December" ];
 	
@@ -101,22 +108,10 @@ function loadToDoList(){
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
-//		button = document.createElement("button");
-//		button.innerHTML = "Edit Task";//(" + results[i][0] + ")";
-//		button.onclick = editTask(id);
-//		button.setAttribute("class", "btn btn-warning");
-//		td.appendChild(button);
-//		td.setAttribute("style", "width: 100px;");
 		td.innerHTML = '<td style="width:100px;"><button class="btn btn-warning" onclick="editTask(' + id + ')" >Edit Task</button></td>';
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
-//		button = document.createElement("button");
-//		button.innerHTML = "Remove Task";//(" + results[i][0] + ")";
-//		button.onclick = removeTask(id);
-//		button.setAttribute("class", "btn btn-danger");
-//		td.appendChild(button);
-//		td.setAttribute("style", "width: 120px;");
 		td.innerHTML = '<td style="width:100px;"><button class="btn btn-danger" onclick="removeTask(' + id + ')" >Remove Task</button></td>';
 		tr.appendChild(td);
 		
@@ -131,11 +126,17 @@ function loadToDoList(){
 }
 
 function editTask(itemID){
-	console.log("Editting task ID: " + itemID);
+//	console.log("Editting task ID: " + itemID);
+	
+	
+	
+	loadToDoList();
 }
 
 function removeTask(itemID){
-	console.log("Removing task ID: " + itemID);
+	makeJSONObject("./webservice/ToDoList/Remove/" + itemID);
+	alertify.error("Task removed!");
+	loadToDoList();
 }
 
 function makeJSONObject(location) {

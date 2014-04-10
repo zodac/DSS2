@@ -4,6 +4,7 @@
 <head>
 <title>Add Task</title>
 
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/customBootstrap.css" rel="stylesheet">
 <link href="css/alertify.core.css" rel="stylesheet">
@@ -49,8 +50,8 @@
 
 <body>
 	<div style="position: absolute; top: 10; right: 0; margin-right: 10px;">
-		<form method="POST" name="logout" action="LoginServlet">
-			<button class="btn btn-danger" type="submit">Logout</button>
+		<form id="logout" name="logout">
+			<button class="btn btn-logout" type="submit">Logout</button>
 		</form>
 	</div>
 

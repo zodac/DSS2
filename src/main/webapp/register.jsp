@@ -3,6 +3,7 @@
 <head>
 <title>Registration Page</title>
 
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/customBootstrap.css" rel="stylesheet">
 <link href="css/alertify.core.css" rel="stylesheet">

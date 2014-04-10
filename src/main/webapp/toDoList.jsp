@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/customBootstrap.css" rel="stylesheet">
 <link href="css/alertify.core.css" rel="stylesheet">
@@ -13,18 +14,14 @@
 <body onload="loadToDoList()">
 	<div style="position: absolute; top: 10; right: 0; margin-right: 10px;">
 		<form id="logout" name="logout">
-			<input class="btn btn-danger" type="submit" value="Logout" />
+			<input class="btn btn-logout" type="submit" value="Logout" />
 		</form>
 	</div>
+	
+	<h3 id="header" style="text-align: center;"></h3>
 
-<!-- 
-	<div class="container" style="width: 900px;">
-		<div class="content" style="max-height: 535px; overflow: auto;"
-			id="todolist"></div>
-	</div>
- -->
  	<div id="todolist"></div>
- 	
+ 	<br />
 	<div style="position: relative; text-align: center">
 		<a href="addItem.jsp">
 			<button style="position: relative; text-align: center"

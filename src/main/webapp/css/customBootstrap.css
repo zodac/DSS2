@@ -41,6 +41,33 @@ table {
   padding: 3px 4px;
 }
 
+.btn-logout {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #000000;
+  *background-color: #000000;
+  background-image: -moz-linear-gradient(top, #666666, #000000);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#666666), to(#000000));
+  background-image: -webkit-linear-gradient(top, #666666, #000000);
+  background-image: -o-linear-gradient(top, #666666, #000000);
+  background-image: linear-gradient(to bottom, #666666, #000000);
+  background-repeat: repeat-x;
+  border-color: #666666 #444444 #444444;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff666666', endColorstr='#ff000000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-logout:hover,
+.btn-logout:focus,
+.btn-logout:active,
+.btn-logout.active,
+.btn-logout.disabled,
+.btn-logout[disabled] {
+  color: #ffffff;
+  background-color: #000000;
+  *background-color: #000000;
+}
+
 .tooltip {
     background-color:#000;
     border:1px solid #fff;
