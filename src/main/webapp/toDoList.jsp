@@ -17,11 +17,14 @@
 		</form>
 	</div>
 
+<!-- 
 	<div class="container" style="width: 900px;">
 		<div class="content" style="max-height: 535px; overflow: auto;"
 			id="todolist"></div>
 	</div>
-
+ -->
+ 	<div id="todolist"></div>
+ 	
 	<div style="position: relative; text-align: center">
 		<a href="addItem.jsp">
 			<button style="position: relative; text-align: center"
