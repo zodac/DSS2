@@ -5,7 +5,8 @@ function loginUser(){
 
 	if (userJSON != "" && userJSON != null) {
 		if (userJSON.userPassword == hex_sha1(password)) {
-			location.replace("toDoList.jsp");
+			document.cookie = "," + userJSON.userName;
+			location.replace("toDoList.html");
 		} else {
 			alertify.alert("Invalid username and/or password!");
 			document.forms["loginform"]["userName"].focus();

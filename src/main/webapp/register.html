@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login page</title>
+<title>Registration Page</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -10,12 +10,12 @@
 <link href="css/alertify.default.css" rel="stylesheet">
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.tools.min.js"></script>
-<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 <script src="js/alertify.min.js"></script>
 
 <script>
 	$(function() {
-		$("#password, #userName").tooltip({
+		$("#password, #confirm, #userName").tooltip({
 			position : "center right",
 			offset : [ -2, 10 ],
 			effect : "fade",
@@ -25,9 +25,9 @@
 </script>
 <script>
 	$(function() {
-		$('#loginform').submit(function(event) {
+		$('#registerform').submit(function(event) {
 			event.preventDefault();
-			loginUser();
+			registerUser();
 		});
 	});
 </script>
@@ -38,20 +38,28 @@
 		<div class="content">
 			<div class="row">
 				<div class="login-form">
-					<h2>Login here</h2>
-					<form name="loginform" id="loginform">
+					<h2>Register here</h2>
+					<form id="registerform" name="registerform">
 						<fieldset>
 							<div class="control-group">
 								<input id="userName" type="text" name="userName"
-									placeholder="Username" title="Not case-sensitive" required />
+									placeholder="Username" title="Must be a unique username"
+									required />
 							</div>
 							<div class="control-group">
 								<input id="password" type="password" name="password"
-									placeholder="Password" title="Case-sensitive" required />
+									placeholder="Password" title="Must have at least 4 characters"
+									required />
 							</div>
-							<input class="btn btn-success" type="submit" value="Login" /> <a
-								href="register.jsp">
-								<button class="btn btn-primary" type="button">Register</button>
+							<div class="control-group">
+								<input id="confirm" type="password" name="confirm"
+									placeholder="Confirm password"
+									title="Must match above password" required />
+							</div>
+
+							<input class="btn btn-primary" type="submit"
+								value="Register here" /> <a href="index.html">
+								<button class="btn btn-warning" type="button">Back to Login</button>
 							</a>
 						</fieldset>
 					</form>

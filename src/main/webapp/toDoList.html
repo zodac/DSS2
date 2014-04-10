@@ -9,6 +9,11 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/toDoList.js"></script>
 <script src="js/alertify.min.js"></script>
+<script>
+	if (typeof (document.cookie.split(",")[1]) == 'undefined') {
+		location.replace("index.html");
+	}
+</script>
 </head>
 
 <body onload="loadToDoList()">
@@ -17,13 +22,13 @@
 			<input class="btn btn-logout" type="submit" value="Logout" />
 		</form>
 	</div>
-	
+
 	<h3 id="header" style="text-align: center;"></h3>
 
- 	<div id="todolist"></div>
- 	<br />
+	<div id="todolist"></div>
+	<br />
 	<div style="position: relative; text-align: center">
-		<a href="addItem.jsp">
+		<a href="addItem.html">
 			<button style="position: relative; text-align: center"
 				class="btn btn-success" type="button">Add Item</button>
 		</a>
