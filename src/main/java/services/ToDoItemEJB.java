@@ -29,6 +29,10 @@ public class ToDoItemEJB implements ToDoItemService {
 	public void addItem(ToDoItem item) {
 		dao.addItem(item);
 	}
+	
+	public void editItem(int itemID, String task) {
+		dao.editItem(itemID, task);
+	}
 
 	public void removeItem(int itemID) {
 		dao.removeItem(itemID);

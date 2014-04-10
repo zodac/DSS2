@@ -45,9 +45,16 @@ public class ToDoList {
     }
 	
 	@GET
-	@Path("Remove/{id}")
+	@Path("Edit/{itemID}/{task}")
 	@Produces(MediaType.APPLICATION_JSON)
-    public void removeItem(@PathParam("id") int itemID){
+    public void editItem(@PathParam("itemID") int itemID, @PathParam("task") String task){
+    	toDoEJB.editItem(itemID, task);
+    }
+	
+	@GET
+	@Path("Remove/{itemID}")
+	@Produces(MediaType.APPLICATION_JSON)
+    public void removeItem(@PathParam("itemID") int itemID){
     	toDoEJB.removeItem(itemID);
     }
 }

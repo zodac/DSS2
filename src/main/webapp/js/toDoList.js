@@ -126,10 +126,9 @@ function loadToDoList(){
 }
 
 function editTask(itemID){
-//	console.log("Editting task ID: " + itemID);
-	
-	
-	
+	var task = "Test update"; //TODO Get from a pop-up or something
+	makeJSONObject("./webservice/ToDoList/Edit/" + itemID + "/" + task);
+	alertify.log("Task changed!");
 	loadToDoList();
 }
 

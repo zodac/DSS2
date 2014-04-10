@@ -22,6 +22,10 @@ public class ToDoItemJPA implements ToDoItemDAO {
 	public void addItem(ToDoItem item) {
 		em.persist(item);
 	}
+	
+	public void editItem(int itemID, String task) {
+		em.createNativeQuery("UPDATE ToDoItem SET task = ? WHERE id = ?").setParameter(1, task).setParameter(2, itemID).executeUpdate();
+	}
 
 	public void removeItem(int itemID) {
 		em.remove(em.find(ToDoItem.class, itemID));

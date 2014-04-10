@@ -10,7 +10,7 @@ function addItem(){
 		var location = "./webservice/ToDoList/Add/" + task + "/" + username;
 		request.open("GET", location, false);
 		request.send(null);
-		alertify.success("Task added!");
+		alertify.success("Task '" + task + "' added!");
 		document.getElementById("additem").reset();
 	}
 }
