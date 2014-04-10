@@ -126,6 +126,7 @@ function loadToDoList(){
 }
 
 function editTask(itemID){
+	alertify.set({ buttonReverse: true });
 	alertify.prompt("Task Description", function (e, str) {
 	    if(e){
 	    	if(str.length < 255){
