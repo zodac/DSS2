@@ -12,6 +12,7 @@
 <script src="js/jquery.tools.min.js"></script>
 <script src="js/addItem.js"></script>
 <script src="js/alertify.min.js"></script>
+<script src="js/login.js"></script>
 <script>
 	if (typeof (document.cookie.split(",")[1]) == 'undefined') {
 		location.replace("index.html");
@@ -39,9 +40,7 @@
 
 <body>
 	<div style="position: absolute; top: 10; right: 0; margin-right: 10px;">
-		<form id="logout" name="logout">
-			<button class="btn btn-logout" type="submit">Logout</button>
-		</form>
+		<button class="btn btn-logout" type="submit" onclick="logout()">Logout</button>
 	</div>
 
 	<div class="container">

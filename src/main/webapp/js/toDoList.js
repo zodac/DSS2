@@ -1,5 +1,5 @@
 function loadToDoList(){
-	var username = "zodac"; //TODO Get from cookie
+	var username = document.cookie.split(",")[1];
 	var results = makeJSONObject("./webservice/ToDoList/" + username);
 	
 	document.title = username + "'s To-Do List";
@@ -126,10 +126,17 @@ function loadToDoList(){
 }
 
 function editTask(itemID){
-	var task = "Test update"; //TODO Get from a pop-up or something
-	makeJSONObject("./webservice/ToDoList/Edit/" + itemID + "/" + task);
-	alertify.log("Task changed!");
-	loadToDoList();
+	alertify.prompt("Task Description", function (e, str) {
+	    if(e){
+	    	if(str.length < 255){
+		    	makeJSONObject("./webservice/ToDoList/Edit/" + itemID + "/" + str);
+		    	alertify.log("Task changed!");
+		    	loadToDoList();
+	    	} else{
+	    		alertify.error("Task description too long!");
+	    	}
+	    }
+	});
 }
 
 function removeTask(itemID){

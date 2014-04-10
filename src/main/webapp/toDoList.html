@@ -9,6 +9,7 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/toDoList.js"></script>
 <script src="js/alertify.min.js"></script>
+<script src="js/login.js"></script>
 <script>
 	if (typeof (document.cookie.split(",")[1]) == 'undefined') {
 		location.replace("index.html");
@@ -18,9 +19,7 @@
 
 <body onload="loadToDoList()">
 	<div style="position: absolute; top: 10; right: 0; margin-right: 10px;">
-		<form id="logout" name="logout">
-			<input class="btn btn-logout" type="submit" value="Logout" />
-		</form>
+		<button class="btn btn-logout" type="submit" onclick="logout()">Logout</button>
 	</div>
 
 	<h3 id="header" style="text-align: center;"></h3>

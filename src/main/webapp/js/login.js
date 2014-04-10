@@ -17,6 +17,11 @@ function loginUser(){
 	}
 }
 
+function logout(){
+	document.cookie = '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	location.replace("index.html");
+}
+
 function makeJSONObject(location) {
 	var request = new XMLHttpRequest();
 	request.open("GET", location, false);

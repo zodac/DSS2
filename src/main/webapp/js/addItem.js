@@ -1,6 +1,6 @@
 function addItem(){
 	var task = document.forms["additem"]["task"].value;
-	var username = "zodac"; //TODO Get from cookie
+	var username = document.cookie.split(",")[1];
 	
 	if(task.length > 255){
 		alertify.error("Task must be less than 255 characters long!");
