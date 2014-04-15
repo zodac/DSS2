@@ -128,6 +128,10 @@ function loadToDoList(){
 function addTask(){
 	var user = document.cookie.split(",")[1];
 	alertify.set({ buttonReverse: true });
+	alertify.set({ labels: {
+	    ok     : "Add Task",
+	    cancel : "Cancel"
+	} });
 	alertify.prompt("Task Description", function (e, str) {
 	    if(e){
 	    	if(str.length < 255){
@@ -143,6 +147,10 @@ function addTask(){
 
 function editTask(itemID){
 	alertify.set({ buttonReverse: true });
+	alertify.set({ labels: {
+	    ok     : "Edit Task",
+	    cancel : "Cancel"
+	} });
 	alertify.prompt("Task Description", function (e, str) {
 	    if(e){
 	    	if(str.length < 255){

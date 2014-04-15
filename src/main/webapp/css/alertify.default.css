@@ -17,13 +17,12 @@
 }
 	.alertify-text {
 		border: 1px solid #CCC;
-		padding: 10px;
+		padding: 25px;
 		border-radius: 1px;
 	}
 	.alertify-button {
 		border-radius: 2px;
 		color: #FFF;
-		font-weight: bold;
 		padding: 6px 15px;
 		text-decoration: none;
 		text-shadow: 1px 1px 0 rgba(0,0,0,.5);
@@ -53,14 +52,14 @@
 		.alertify-button-cancel,
 		.alertify-button-cancel:hover,
 		.alertify-button-cancel:focus {
-			background-color: #FE1A00;
-			border: 1px solid #D83526;
+			background-color: #da4f49;
+			border: 1px solid #942a25;
 		}
 		.alertify-button-ok,
 		.alertify-button-ok:hover,
 		.alertify-button-ok:focus {
-			background-color: #049CDB;
-			border: 1px solid #2B72D5;
+			background-color: #51a351;
+			border: 1px solid #499249;
 		}
 
 .alertify-log {
