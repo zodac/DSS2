@@ -7,7 +7,7 @@ function addItem(){
 		document.forms["additem"]["task"].focus();
 	} else{
 		var request = new XMLHttpRequest();
-		var location = "./webservice/ToDoList/Add/" + task + "/" + username;
+		var location = "./webservice/ToDoList/Add/" + username + "/" + encodeURIComponent(task);
 		request.open("GET", location, false);
 		request.send(null);
 		alertify.success("Task '" + task + "' added!");

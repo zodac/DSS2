@@ -6,13 +6,16 @@ function registerUser(){
 	if(makeJSONObject("./webservice/Users/" + username) != ""){
 		alertify.error("Username taken!");
 		document.forms["registerform"]["userName"].focus();
+	} else if(!username.match(/^[0-9a-z]+$/)){
+		alertify.error("Invalid username format!");
+		document.forms["registerform"]["userName"].focus();
 	} else if(password.length < 4){
 		alertify.error("Password must be at least 4 characters long!");
 		document.forms["registerform"]["password"].focus();
 	} else if(password != confirm){
 		alertify.error("Passwords must match!");
 		document.forms["registerform"]["password"].focus();
-	} else {
+	} else{
 		var request = new XMLHttpRequest();
 		var location = "./webservice/Users/" + username + "/" + password;
 		request.open("GET", location, false);

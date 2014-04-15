@@ -33,9 +33,9 @@ public class ToDoList {
     }
 	
 	@GET
-	@Path("Add/{task}/{user}")
+	@Path("Add/{user}/{task}")
 	@Produces(MediaType.APPLICATION_JSON)
-    public void addItem(@PathParam("task") String task, @PathParam("user") String userName){
+    public void addItem(@PathParam("user") String userName, @PathParam("task") String task){
     	ToDoItem item = new ToDoItem();
     	item.setDate(new Date());
     	item.setTask(task);
