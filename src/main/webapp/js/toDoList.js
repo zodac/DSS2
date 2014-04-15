@@ -31,7 +31,7 @@ function loadToDoList(){
 	var td = document.createElement("td");
 	var b = document.createElement("b");
 	b.innerHTML = "Timestamp";
-	td.setAttribute("style", "width: 150px;");
+	td.setAttribute("style", "width: 130px;");
 	td.appendChild(b);
 	tr.appendChild(td);
 	
@@ -44,7 +44,7 @@ function loadToDoList(){
 	td = document.createElement("td");
 	b = document.createElement("b");
 	b.innerHTML = "Edit Task";
-	td.setAttribute("style", "width: 100px;");
+	td.setAttribute("style", "width: 85px;");
 	td.appendChild(b);
 	tr.appendChild(td);
 	
@@ -67,7 +67,7 @@ function loadToDoList(){
 		
 		var date = new Date(results[i][1]);
 		var id = results[i][0];
-		var day = date.getDay();
+		var day = date.getDate();
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
 		var dateString = day;
@@ -84,7 +84,7 @@ function loadToDoList(){
 			dateString += "th ";
 		}
 		
-		dateString += monthNames[date.getMonth()-1] + " - ";
+		dateString += monthNames[date.getMonth()] + " - ";
 		
 		if(hours < 10){
 			dateString += "0" + hours + ":";
@@ -99,20 +99,20 @@ function loadToDoList(){
 		}
 		
 		td.innerHTML = dateString;
-		td.setAttribute("style", "width: 150px;");
+		td.setAttribute("style", "width: 130px;");
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
 		td.innerHTML = results[i][2];
-		td.setAttribute("style", "width: 150px;");
+		td.setAttribute("style", "width:150px; word-wrap:break-word;");
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
-		td.innerHTML = '<td style="width:100px;"><button class="btn btn-warning" onclick="editTask(' + id + ')" >Edit Task</button></td>';
+		td.innerHTML = '<td style="width:85px;"><button class="btn btn-warning" onclick="editTask(' + id + ')" >Edit Task</button></td>';
 		tr.appendChild(td);
 		
 		td = document.createElement("td");
-		td.innerHTML = '<td style="width:100px;"><button class="btn btn-danger" onclick="removeTask(' + id + ')" >Remove Task</button></td>';
+		td.innerHTML = '<tdstyle="width:100px;"><button class="btn btn-danger" onclick="removeTask(' + id + ')" >Remove Task</button></td>';
 		tr.appendChild(td);
 		
 		tbody.appendChild(tr);
@@ -123,6 +123,22 @@ function loadToDoList(){
 	contentDiv.appendChild(tableDiv);
 	containerDiv.appendChild(contentDiv);
 	document.getElementById("todolist").appendChild(containerDiv);
+}
+
+function addTask(){
+	var user = document.cookie.split(",")[1];
+	alertify.set({ buttonReverse: true });
+	alertify.prompt("Task Description", function (e, str) {
+	    if(e){
+	    	if(str.length < 255){
+		    	makeJSONObject("./webservice/ToDoList/Add/" + user + "/" + str);
+		    	alertify.log("Task added!");
+		    	loadToDoList();
+	    	} else{
+	    		alertify.error("Task description too long!");
+	    	}
+	    }
+	});
 }
 
 function editTask(itemID){
