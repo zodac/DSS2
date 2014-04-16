@@ -38,7 +38,7 @@ public class ToDoList {
     public void addItem(@PathParam("user") String userName, @PathParam("task") String task){
     	ToDoItem item = new ToDoItem();
     	item.setDate(new Date());
-    	item.setTask(task);
+    	item.setTask(task.replace("@@@", "/"));
     	item.setUser(userEJB.getUserByUsername(userName));
     	
     	toDoEJB.addItem(item);

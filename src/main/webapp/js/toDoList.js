@@ -132,17 +132,18 @@ function addTask(){
 	    ok     : "Add Task",
 	    cancel : "Cancel"
 	} });
-	alertify.prompt("Task Description", function (e, str) {
+	alertify.prompt("Task Description", function (e, str) {		
 	    if(e){
-	    	if(str.length < 255){
-		    	makeJSONObject("./webservice/ToDoList/Add/" + user + "/" + str);
+	    	if(str.length > 255){
+	    		alertify.error("Task description too long!");
+	    	} else{
+	    		makeJSONObject("./webservice/ToDoList/Add/" + user + "/" + str.replace("/", "@@@"));
 		    	alertify.log("Task added!");
 		    	loadToDoList();
-	    	} else{
-	    		alertify.error("Task description too long!");
 	    	}
 	    }
 	});
+	
 }
 
 function editTask(itemID){
