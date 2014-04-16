@@ -37,7 +37,7 @@ public class Users {
     public Response registerUser(@PathParam("userName") String userName, @PathParam("password") String password){
     	User user = new User();
     	user.setUserName(userName);
-    	user.setUserPassword(DigestUtils.sha1Hex(password));
+    	user.setUserPassword(DigestUtils.sha256Hex(password));
     	
     	userEJB.registerUser(user);
     	Response.ResponseBuilder builder = Response.ok();
