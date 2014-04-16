@@ -4,7 +4,7 @@ function loginUser(){
 	var userJSON = makeJSONObject("./webservice/Users/" + username);
 
 	if (userJSON != "" && userJSON != null) {
-		if (userJSON.userPassword == CryptoJS.SHA256(password)) {
+		if (userJSON.userPassword == CryptoJS.SHA256(CryptoJS.SHA256(password) + userJSON.userName)) {
 			document.cookie = "," + userJSON.userName;
 			location.replace("toDoList.html");
 		} else {

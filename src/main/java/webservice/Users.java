@@ -1,5 +1,7 @@
 package webservice;
 
+import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
+
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -11,8 +13,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import org.apache.commons.codec.digest.DigestUtils;
 
 import services.UserService;
 import entities.User;
@@ -37,7 +37,7 @@ public class Users {
     public Response registerUser(@PathParam("userName") String userName, @PathParam("password") String password){
     	User user = new User();
     	user.setUserName(userName);
-    	user.setUserPassword(DigestUtils.sha256Hex(password));
+    	user.setUserPassword(sha256Hex(sha256Hex(password) + userName));
     	
     	userEJB.registerUser(user);
     	Response.ResponseBuilder builder = Response.ok();
