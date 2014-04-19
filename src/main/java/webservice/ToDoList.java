@@ -48,7 +48,7 @@ public class ToDoList {
 	@Path("Edit/{itemID}/{task}")
 	@Produces(MediaType.APPLICATION_JSON)
     public void editItem(@PathParam("itemID") int itemID, @PathParam("task") String task){
-    	toDoEJB.editItem(itemID, task);
+    	toDoEJB.editItem(itemID, task.replace("@@@", "/"));
     }
 	
 	@GET

@@ -155,7 +155,7 @@ function editTask(itemID){
 	alertify.prompt("Task Description", function (e, str) {
 	    if(e){
 	    	if(str.length < 255){
-		    	makeJSONObject("./webservice/ToDoList/Edit/" + itemID + "/" + str);
+		    	makeJSONObject("./webservice/ToDoList/Edit/" + itemID + "/" + str.replace("/", "@@@"));
 		    	alertify.log("Task changed!");
 		    	loadToDoList();
 	    	} else{
